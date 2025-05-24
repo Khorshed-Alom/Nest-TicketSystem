@@ -6,7 +6,7 @@ import {BuyTicketTicket, WithdrawTicket} from "../../script/Interactions.s.sol";
 import {Test, console} from "../../lib/forge-std/src/Test.sol";
 import {Ticket} from "../../src/Ticket.sol";
 
-contract Interationstest is test {
+contract Interationstest is Test {
     Ticket ticket;
 
     function setUp() public {
@@ -20,11 +20,11 @@ contract Interationstest is test {
         hoax(address(buyTicketTicket), 1 ether);
         buyTicketTicket.buyTicketTicket(address(ticket));
 
-        uint160 buyers = address(buyTicketTicket);
-        assert(buyers == buyers(0));
+        address buyer = address(buyTicketTicket);
+        assert(buyer == ticket.buyers(0));
     }
 
-    function testWithdrawTicket() pubvlic {
+    function testWithdrawTicket() public {
 
     }
 }

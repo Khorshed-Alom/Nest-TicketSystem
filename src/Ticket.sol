@@ -6,7 +6,7 @@ pragma solidity ^0.8.20;
 */
 contract Ticket {
 
-	address[] buyers;
+	address[] public buyers;
 	address private immutable owner;
 	error  ownerRequired();
 	mapping (address => bool) public hasAlreadyBought;
@@ -60,4 +60,9 @@ contract Ticket {
 	function getBuyers() external view returns(address[] memory) {
 		return buyers;
 	}
+
+	//getter
+	// function getABuyer( uint256 index) external view returns(address) {
+	// 	return buyers[index];
+	// }
 }
