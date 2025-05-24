@@ -7,23 +7,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Rust (needed for Foundry)
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-          components: rustfmt
-
       - name: Install Foundry
-        run: |
-          curl -L https://foundry.paradigm.xyz | bash
-          ~/.foundry/bin/foundryup
-
-      - name: Add Foundry to PATH
-        run: echo "$HOME/.foundry/bin" >> $GITHUB_PATH
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly  # or use 'stable'
 
       - name: Install dependencies
         run: forge install
