@@ -5,8 +5,7 @@ import {Script} from "../lib/forge-std/src/Script.sol";
 import {Ticket} from "../src/Ticket.sol";
 
 contract DeployTicket is Script {
-    
-    function run() external returns(Ticket) {
+    function run() external returns (Ticket) {
         vm.startBroadcast();
         Ticket ticket = new Ticket();
         vm.stopBroadcast();

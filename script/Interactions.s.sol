@@ -11,7 +11,7 @@ contract BuyTicketTicket is Script {
 
     function buyTicketTicket(address mostRecentDeployed) public {
         Ticket(payable(mostRecentDeployed)).buyTicket{value: sendValue}();
-       
+
         console.log("Bought ticket with the amount of %s", sendValue);
     }
 
@@ -24,10 +24,9 @@ contract BuyTicketTicket is Script {
     }
 }
 
-
 contract WithdrawTicket is Script {
     Ticket ticket;
-    
+
     function run() external {
         address mostRecentDeployed = DevOpsTools.get_most_recent_deployment("Ticket", block.chainid);
 
@@ -37,11 +36,11 @@ contract WithdrawTicket is Script {
     }
 
     function withdrawTicket(address mostRecentDeployed) public {
-        vm.prank(getOwner()); 
+        vm.prank(getOwner());
         Ticket(payable(mostRecentDeployed)).withdraw();
     }
 
-    function getOwner() public returns(address){
+    function getOwner() public returns (address) {
         DeployTicket deployTicket = new DeployTicket();
         ticket = deployTicket.run();
         address owner = ticket.getOwner();

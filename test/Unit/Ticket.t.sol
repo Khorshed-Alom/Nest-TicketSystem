@@ -6,7 +6,6 @@ import {Test, console} from "../../lib/forge-std/src/Test.sol";
 import {Ticket} from "../../src/Ticket.sol";
 
 contract TestTicket is Test {
-
     Ticket ticket;
     address USER = makeAddr("user");
     uint256 constant startingBalance = 10 ether;
@@ -61,7 +60,7 @@ contract TestTicket is Test {
         ticket.buyTicket{value: sendBalance}();
 
         uint256 ticketRemain = ticket.ticketsLeft();
-        
+
         // ticket should left 97
         assertEq(97, ticketRemain);
     }

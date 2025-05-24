@@ -24,7 +24,5 @@ contract Interationstest is Test {
         assert(buyer == ticket.buyers(0));
     }
 
-    function testWithdrawTicket() public {
-
-    }
+    function testWithdrawTicket() public {}
 }
