@@ -40,7 +40,8 @@ contract Ticket {
         for (uint256 i = 0; i < buyersLength; i++) {
             hasAlreadyBought[buyers[i]] = false;
         }
-        delete buyers;
+        //delete buyers;
+        buyers = new address[](0);
     }
 
     function ticketsLeft() external view returns (uint256) {
